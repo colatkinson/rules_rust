@@ -5,6 +5,8 @@
 #
 # Should be run from workspace root.
 
+export LC_ALL=C
+
 TOOLS="$(cat ./util/fetch_shas_TOOLS.txt)"
 TARGETS="$(cat ./util/fetch_shas_TARGETS.txt)"
 VERSIONS="$(cat ./util/fetch_shas_VERSIONS.txt)"
