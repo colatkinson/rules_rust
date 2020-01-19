@@ -108,9 +108,15 @@ def BUILD_for_rustfmt(target_triple):
     return """
 load("@io_bazel_rules_rust//rust:toolchain.bzl", "rust_toolchain")
 
+filegroup(
+    name = "rustfmt_bin",
+    srcs = ["bin/rustfmt{binary_ext}"],
+    visibility = ["//visibility:public"],
+)
+
 sh_binary(
     name = "rustfmt",
-    srcs = ["bin/rustfmt{binary_ext}"],
+    srcs = [":rustfmt_bin"],
     visibility = ["//visibility:public"],
 )
 """.format(
@@ -163,6 +169,7 @@ rust_toolchain(
     rust_doc = "@{workspace_name}//:rustdoc",
     rust_lib = "@{workspace_name}//:rust_lib-{target_triple}",
     rustc = "@{workspace_name}//:rustc",
+    rustfmt = "@{workspace_name}//:rustfmt_bin",
     rustc_lib = "@{workspace_name}//:rustc_lib",
     staticlib_ext = "{staticlib_ext}",
     dylib_ext = "{dylib_ext}",
