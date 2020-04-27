@@ -5,7 +5,7 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 DEFAULT_TOOLCHAIN_NAME_PREFIX = "toolchain_for"
 
-def rust_repositories(version="1.39.0", iso_date=None, rustfmt_version="1.4.8"):
+def rust_repositories(version="1.43.0", iso_date=None, rustfmt_version="1.4.12"):
     """Emits a default set of toolchains for Linux, OSX, and Freebsd
 
     Skip this macro and call the `rust_repository_set` macros directly if you need a compiler for
